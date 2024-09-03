@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Math Concepts</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .math-concept {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .description {
+            flex: 1;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .image img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .left, .right {
+            position: fixed;
+            padding: 10px 20px;
+            background-color: #1d1111;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .left {
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .right {
+            left: 20px;
+            bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #494c49;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Basic Math Concepts</h1>
+        <p>Learn simple addition with objects</p>
+    </header>
+
+    <div class="game-container">
+        <div class="math-concept">
+            <div class="description">1 + 1 = 2</div>
+            <div class="image"><img src="images/one-apple.jpg" alt="One Apple"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-apple.jpg" alt="One Apple"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/two-apples.jpg" alt="Two Apples"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">2 + 1 = 3</div>
+            <div class="image"><img src="images/two-balls.jpg" alt="Two Balls"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-ball.jpg" alt="One Ball"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/three-balls.jpg" alt="Three Balls"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">3 + 1 = 4</div>
+            <div class="image"><img src="images/three-cars.jpg" alt="Three Cars"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-car.jpg" alt="One Car"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/four-cars.jpg" alt="Four Cars"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">4 + 1 = 5</div>
+            <div class="image"><img src="images/four-books.jpg" alt="Four Books"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-book.jpg" alt="One Book"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/five-books.jpg" alt="Five Books"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">5 + 1 = 6</div>
+            <div class="image"><img src="images/five-stars.jpg" alt="Five Stars"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-star.jpg" alt="One Star"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/six-stars.jpg" alt="Six Stars"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">6 + 1 = 7</div>
+            <div class="image"><img src="images/six-tree.jpg" alt="Six Trees"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-tree.jpg" alt="One Tree"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/seven-trees.jpg" alt="Seven Trees"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">S7 + 1 = 8</div>
+            <div class="image"><img src="images/seven-lemons.jpg" alt="Seven Lemons"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-lemon.jpg" alt="One Lemon"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/eight-lemons.jpg" alt="Eight Lemons"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">8 + 1 =9</div>
+            <div class="image"><img src="images/eight-chairs.jpg" alt="Eight Chairs"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-chair.jpg" alt="One Chair"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/nine-chairs.jpg" alt="Nine Chairs"></div>
+        </div>
+        <div class="math-concept">
+            <div class="description">9 + 1 = 10</div>
+            <div class="image"><img src="images/nine-pencils.jpg" alt="Nine Pencils"></div>
+            <div class="description">+</div>
+            <div class="image"><img src="images/one-pencil.jpg" alt="One Pencil"></div>
+            <div class="description">=</div>
+            <div class="image"><img src="images/ten-pencils.jpg" alt="Ten Pencils"></div>
+        </div>
+    </div>
+
+    <a href="autism.html">
+        <button type="button" class="right">Previous</button>
+    </a>
+    <a href="game.html">
+        <button type="button" class="left">Next</button>
+    </a>
+
+    <footer>
+        <p>&copy; Learn Numbers</p>
+    </footer>
+</body>
+</html>

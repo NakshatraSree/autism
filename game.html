@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Order Game</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .drop-container, .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 300px;
+        }
+
+        .drop-container .drop-zone, .drag-container .drag-item {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .drag-container .drag-item {
+            border: 2px solid #ccc;
+        }
+
+        .drag-container .drag-item.dragging {
+            opacity: 0.5;
+        }
+    .left {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #1d1111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #494c49;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Number Order Game</h1>
+        <p>Drag and drop the numbers in the correct order from 1 to 10.</p>
+    </header>
+
+    <div class="content">
+        <div class="game-container">
+            <div id="drop-container" class="drop-container">
+            </div>
+            <div id="drag-container" class="drag-container">
+            </div>
+        </div>
+
+        <button onclick="checkOrder()">Check Order</button>
+        <p id="result"></p>
+    </div>
+    <a href="match.html" >
+        <button type="button" class="left" >Previous</button>
+
+    </a>
+   
+    <footer>
+        <p>&copy; Learn Numbers</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            // Function to shuffle the array
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            // Shuffle the numbers array
+            shuffle(numbers);
+
+            const dragContainer = document.getElementById('drag-container');
+            const dropContainer = document.getElementById('drop-container');
+            
+            // Create drag items
+            numbers.forEach(number => {
+                const dragItem = document.createElement('div');
+                dragItem.className = 'drag-item';
+                dragItem.draggable = true;
+                dragItem.textContent = number;
+                dragItem.id = `drag-${number}`;
+                dragContainer.appendChild(dragItem);
+
+                // Drag events
+                dragItem.addEventListener('dragstart', () => {
+                    dragItem.classList.add('dragging');
+                });
+
+                dragItem.addEventListener('dragend', () => {
+                    dragItem.classList.remove('dragging');
+                });
+            });
+
+            // Create drop zones
+            for (let i = 0; i < numbers.length; i++) {
+                const dropZone = document.createElement('div');
+                dropZone.className = 'drop-zone';
+                dropZone.dataset.index = i;
+                dropContainer.appendChild(dropZone);
+
+                // Drop zone events
+                dropZone.addEventListener('dragover', (event) => {
+                    event.preventDefault();
+                });
+
+                dropZone.addEventListener('drop', (event) => {
+                    event.preventDefault();
+                    const draggedItem = document.querySelector('.dragging');
+                    if (dropZone.childNodes.length === 0) {
+                        dropZone.appendChild(draggedItem);
+                    }
+                });
+            }
+        });
+
+        // Check the order and calculate score
+        function checkOrder() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let score = 0;
+
+            dropZones.forEach((dropZone, index) => {
+                const draggedItem = dropZone.querySelector('.drag-item');
+                if (draggedItem) {
+                    const number = parseInt(draggedItem.textContent, 10);
+                    if (number === index + 1) {
+                        score++;
+                    }
+                }
+            });
+
+            const result = document.getElementById('result');
+            result.textContent = `Your score is: ${score}/10`;
+        }
+    </script>
+</body>
+</html>
